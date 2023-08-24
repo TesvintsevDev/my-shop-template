@@ -1,5 +1,5 @@
-import { getMainTitle } from "../components/mainTitle"
-import { getDesc } from "../components/desc"
+import { getMainTitle } from "/src/js/components/mainTitle/mainTitle"
+import { getDesc } from "/src/js/components/desc/desc"
 
 // Страница товара
 export function getProductPage(title) {
