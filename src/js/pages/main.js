@@ -1,5 +1,6 @@
 import { getMainTitle } from "/src/js/components/mainTitle/mainTitle"
-import { getProductCard } from "/src/js/components/productCard/productCard"
+import { getProductList } from "/src/js/components/productsList/productsList"
+import { URL } from "/src/js/config"
 
 // Главная страница
 export function getMainPage() {
@@ -8,15 +9,9 @@ export function getMainPage() {
 
   const mainTitle = getMainTitle("Главная страница")
 
-  const list = document.createElement("ul")
-  list.classList.add("product-list", "list-reset")
+  const product = getProductList()
+  product.getProducts(`${URL}/wp-json/wp/v1/products?count=4`)
 
-  list.append(
-    getProductCard("Товар_1", 400),
-    getProductCard("Товар_2", 300),
-    getProductCard("Товар_3", 700)
-  )
-
-  page.append(mainTitle, list)
+  page.append(mainTitle, product.productsList)
   return page
 }
